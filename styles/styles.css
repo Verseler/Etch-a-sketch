@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,500&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(236, 236, 236);
+}
+
+.sketch {
+    padding: 30px 60px;
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) 60%;
+}
+
+.setting {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.setting h1 {
+    margin: 30px 0;
+}
+
+.setting .color-picker {
+    background-color: red;
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+    border-radius:100%;
+}
+
+.setting .color-picker .color {
+    width:100%;
+    height:100%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #0000001A;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.setting .config-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.setting .config-wrapper button {
+    color: rgb(54, 54, 54);
+    font-size: 1rem;
+    margin-top: 2em;
+    height: 2.5em;
+    width: 13em;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 100ms ease-in-out;
+}
+
+
+.setting .config-wrapper button:hover {
+    transform: scale(1.1);
+} 
+
+.setting .config-wrapper .active {
+    color: #f8f8f8;
+    background-color: #292929;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.setting .config-wrapper .size-config {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.setting .config-wrapper .size-config label {
+    font-size: 1.3rem;
+    color: #444444;
+}
+
+.setting .config-wrapper .size-config .slider {
+    accent-color: #292929;
+    width: 13rem;
+}
+
+
+.pad {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+}
+
+
+.pad .box {
+    border: 1px solid rgb(235, 235, 235); 
+    cursor: crosshair;   
+}
+
+
