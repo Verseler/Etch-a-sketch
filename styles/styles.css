@@ -69,12 +69,19 @@ body {
 }
 
 
-.setting .config-wrapper button:hover, .color-picker:hover {
+.setting .config-wrapper button:hover,
+.color-picker:hover,
+.size-config .slider:hover {
     transform: scale(1.1);
 } 
 
-.setting .config-wrapper button:active, .color-picker:active {
+.setting .config-wrapper button:active,
+.color-picker:active,
+.size-config .slider:active {
     transform: scale(1);
+    color: #f8f8f8;
+    background-color: #292929;
+    border: 1px solid black;
 } 
 
 .setting .config-wrapper .active {
@@ -96,11 +103,14 @@ body {
 .setting .config-wrapper .size-config label {
     font-size: 1.3rem;
     color: #444444;
+    margin-bottom: 5px;
 }
 
 .setting .config-wrapper .size-config .slider {
     accent-color: #292929;
     width: 13rem;
+    transition: transform 75ms ease-in-out;
+    cursor: pointer;
 }
 
 

@@ -1,7 +1,7 @@
 const NO_COLOR = 'rgb(255,255,255)';
 const DEFAULT_COLOR = 'rgb(1,1,1)';
 const DEFAULT_MODE = 'draw';
-let currentColor;
+let currentColor = DEFAULT_COLOR;
 let sliderLabel = document.getElementById('slider-label');
 
 const pad = document.getElementById('pad');
@@ -23,7 +23,7 @@ function setPadGrid(size) {
         box.classList.add('box');
         pad.appendChild(box);
     }
-    setEvent(DEFAULT_COLOR, DEFAULT_MODE);
+    setMode(DEFAULT_MODE);
 }
 
 /* set the current mode based on the selected mode button */
@@ -47,6 +47,7 @@ function setEvent(color, mode) {
     if(mode === 'erase') {
         color = NO_COLOR;
     }  
+
     let isDrawing = false;
     Array.from(boxes).forEach(box => {
         //when cursor press the box it changed its background-color
@@ -84,7 +85,7 @@ function clearPad() {
 
 
 /* when color input is changed update currentColor */
-colorInput.addEventListener('input', () => {
+colorInput.addEventListener('change', () => {
     updateColor(colorInput.value);
 });
 function updateColor(newColor) {
@@ -99,7 +100,6 @@ gridSizeSlider.addEventListener('input', () => {
     latestGridSize = gridSizeSlider.value;
     setPadGrid(latestGridSize);
 });
-
 
 /* set pad everytime the page is realoaded */
 window.onload = () => {

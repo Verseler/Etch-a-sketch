@@ -13,11 +13,11 @@
             <div class="color-picker">
                 <input id="color" class="color" type="color" />
             </div>
-            <button id="draw" onclick="setMode(id)" class="active">Draw</button>
+            <button id="draw" onclick="setMode(id)">Draw</button>
             <button id="erase" onclick="setMode(id)">Eraser</button>
             <button onclick=clearPad()>Clear</button>
             <div class="size-config">
-                <label id="slider-label" for="slider"></label>
+                <label id="slider-label"></label>
                 <input id="slider" class="slider" type="range" value="16" min="1" max="64" />
             </div>
         </div>
@@ -25,5 +25,7 @@
     <div class="pad" id="pad">
     </div>
     <script src="script.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
 </body>
 </html>
