@@ -101,6 +101,26 @@ gridSizeSlider.addEventListener('input', () => {
     setPadGrid(latestGridSize);
 });
 
+/**/ 
+const saveButton = document.getElementById('saveButton');
+const myDiv = document.getElementById('pad');
+
+saveButton.addEventListener('click', () => {
+    html2canvas(myDiv).then(canvas => {
+        // Convert the canvas to a base64-encoded image URL
+        const dataUrl = canvas.toDataURL('image/png');
+
+        // Create a link element and set its href to the data URL
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        link.download = 'myImage.png'; // Set the desired file name
+
+        // Programmatically click the link to trigger the download
+        link.click();
+    });
+});
+/**/
+
 /* set pad everytime the page is realoaded */
 window.onload = () => {
     setPadGrid(DEFAULT_GRID_SIZE);
