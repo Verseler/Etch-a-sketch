@@ -120,6 +120,7 @@ body {
 
 .pad {
     height: 100%;
+    max-height: 550px;
     min-width: 550px;
     max-width: 60%;
     background-color: #fff;
