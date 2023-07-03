@@ -1,17 +1,20 @@
 const NO_COLOR = 'rgb(255,255,255)';
 const DEFAULT_COLOR = 'rgb(1,1,1)';
 const DEFAULT_MODE = 'draw';
-let currentColor = DEFAULT_MODE;
+let currentColor;
+let sliderLabel = document.getElementById('slider-label');
 
-const gridSizeSlider = document.getElementById('slider');
-const gridSize = gridSizeSlider.getAttribute('value');
 const pad = document.getElementById('pad');
 const colorInput = document.getElementById('color');
 const boxes = document.getElementsByClassName('box');
+const gridSizeSlider = document.getElementById('slider');
+const DEFAULT_GRID_SIZE = gridSizeSlider.value;
 
 
 /* set sketch pad grid depending on the given size */
 function setPadGrid(size) {
+    sliderLabel.innerText = `${size} x ${size}`; //set slider size label
+
     pad.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     pad.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     
@@ -82,8 +85,7 @@ function clearPad() {
 
 /* when color input is changed update currentColor */
 colorInput.addEventListener('input', () => {
-    color = colorInput.value;
-    updateColor(color);
+    updateColor(colorInput.value);
 });
 function updateColor(newColor) {
     currentColor = newColor;
@@ -91,7 +93,15 @@ function updateColor(newColor) {
 }
 
 
+/* when size slider is changed update the current gridSize and reset the padGrid */
+gridSizeSlider.addEventListener('input', () => {
+    pad.innerHTML = '';
+    latestGridSize = gridSizeSlider.value;
+    setPadGrid(latestGridSize);
+});
+
+
 /* set pad everytime the page is realoaded */
 window.onload = () => {
-    setPadGrid(gridSize);
+    setPadGrid(DEFAULT_GRID_SIZE);
 }
