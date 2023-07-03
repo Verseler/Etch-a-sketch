@@ -36,7 +36,8 @@ body {
     height: 80px;
     width: 80px;
     overflow: hidden;
-    border-radius:100%;
+    border-radius: 100%;
+    transition: transform 75ms ease-in-out;
 }
 
 .setting .color-picker .color {
@@ -64,12 +65,16 @@ body {
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 100ms ease-in-out;
+    transition: transform 75ms ease-in-out;
 }
 
 
-.setting .config-wrapper button:hover {
+.setting .config-wrapper button:hover, .color-picker:hover {
     transform: scale(1.1);
+} 
+
+.setting .config-wrapper button:active, .color-picker:active {
+    transform: scale(1);
 } 
 
 .setting .config-wrapper .active {
@@ -110,7 +115,7 @@ body {
 
 .pad .box {
     border: 1px solid rgb(235, 235, 235); 
-    cursor: crosshair;   
 }
+
 
 
